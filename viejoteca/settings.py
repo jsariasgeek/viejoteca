@@ -125,6 +125,11 @@ STATICFILES_DIRS = (
     )
 
 
+AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'Cache-Control': 'max-age=94608000',
+    }
+
 AWS_STORAGE_BUCKET_NAME = 'viejoteca2015'
 AWS_ACCESS_KEY_ID = os.environ['s3_key_id']
 AWS_SECRET_ACCESS_KEY = os.environ['s3_access_key']
