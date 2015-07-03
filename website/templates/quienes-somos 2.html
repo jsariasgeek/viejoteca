@@ -1,0 +1,303 @@
+{% extends 'navbar.html' %}
+{% load staticfiles %}
+{% block cabecera %}
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>La viejoteca de la Quinta - Quienes Somos</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{% static 'js/preload.js' %}"></script>  
+    
+	<meta name="description" content="La Viejoteca de la Quinta. Club Social y Cultural dedicado a ofrecer la mejor recopilaci&oacute;n de todos los géneros musicales en un emocionante recorrido por todas las épocas, desde la  más clásica hasta la más moderna, con el  objetivo de hacer que todos nuestros visitantes sientan intensamente la pasión por la música y el baile.">
+    
+     <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+
+	<!-- Bootstrap-->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+	<!-- Custom CSS-->
+	<link rel="stylesheet" href="{% static 'css/custom.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/animation-nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/quienes-somos.css' %}">
+
+    <!--Font Awesome -->
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.css' %}">
+
+  
+
+  
+
+  
+
+</head>
+
+<body> 
+
+{% endblock %}  
+    
+{% block cuerpo %}
+
+    <br>
+    <br>
+    <br>
+    <br>   
+ 
+<div class="row">
+    <div class="row">
+        <div class="container">
+            <div class="col-md-12">
+                <div class="col-md-4 col-sm-4">
+                    <a class="text-130" href="#service-one"  data-toggle="tab">
+                        <div class="circle-text">
+                            <div class="tabs-quienes-somos">
+                                <img src="{% static 'img/sobre-nosotros.png' %}" alt="Sobre Nosotros" class="img-quienes-somos"><br>SOBRE NOSOTROS
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <a class="text-130" href="#service-two"  data-toggle="tab">
+                        <div class="circle-text">
+                            <div id="clientes" class="tabs-quienes-somos">
+                                <img src="{% static 'img/clientes-preferenciales.png' %}" alt="Clientes Preferenciales" class="img-quienes-somos">
+                                <br>CLIENTES <br>PREFERENCIALES
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <a class="text-130" href="#service-three"  data-toggle="tab">
+                        <div class="circle-text">
+                            <div class="tabs-quienes-somos">
+                                <img src="{% static 'img/equipo.png' %}" alt="Equipo de Trabajo" class="img-quienes-somos">
+                                <br> UN EQUIPO A SU SERVICIO
+                            </div>
+                        </div>
+                    </a>
+                </div>                
+            </div>
+        </div>
+    </div> 
+
+    <div class="row">
+        <div class="col-md-12">
+            <div id="myTabContent" class="tab-content"> 
+
+                <div class="tab-pane fade in active" id="service-one">
+                    <div class="row">
+                        <div class="container">
+                            <div class="col-md-12">
+                                <br> 
+                                <h2 class="text-center text-color-form">LA VIEJOTECA DE LA QUINTA, SIN&Oacute;NIMO DE LA mejor m&Uacute;sica Crossover de todos los tiempos</h2>
+                                <br>                                           
+                                <p class="text-color-form text-center text-120">
+                                La Viejoteca de la Quinta, es un Club Social y Cultural dedicado a ofrecer la mejor recopilaci&oacute;n de todos los géneros musicales, con una rumba diseñada para llevarlo en un emocionante recorrido por todas las épocas, desde la  más clásica hasta la más moderna, con el  objetivo de hacer que todos nuestros visitantes sientan intensamente la pasión por la música y el baile.
+                                </p>
+                            </div>
+                        </div>
+                    </div>                                    
+                </div>
+
+                <div class="tab-pane fade in" id="service-two">
+                    <div class="row">
+                         <div class="container">
+                             <div class="col-md-12">
+                                <br> 
+                                <h2 class="text-center text-color-form">DESCRIPCI&oacute;N DEL CLUB DE CLIENTES PREFERENCIALES</h2>
+                                <br>                                           
+                                <p class="text-color-form">
+                                El Club de Clientes Preferenciales, consiste en un programa dirigido a empresas, organizaciones, instituciones y estamentos del sector p&uacute;blico, privado y no gubernamental, donde sus colaboradores o funcionarios podr&aacute;n convertirse en socios del club de clientes preferenciales, en forma individual o colectiva, con los correspondientes beneficios de tipo institucional y masivo.
+                                </p>
+                                <p class="text-color-form">
+                                   Los socios del Club de Clientes Preferenciales tendr&aacute;n como beneficios, el acceder a descuentos, premios y cortes&iacute;as,  ser atendidos en zona especial tipo VIP, donde se les asignara personal exclusivo para su atenci&oacute;n,  la posibilidad de celebrar sus eventos, cumpleaños y fechas especiales  en nuestras instalaciones sin ningún costo, entre  otros aspectos  más. 
+                                </p>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+
+                <div class="tab-pane fade in" id="service-three">
+
+                    <br>
+                    <br>
+                
+                    <div class="row row-carousel">
+                        <br>
+                        <div class="container">
+                            <div class="col-md-12">                        
+                                <div id="carousel-quienes-somos" class="carousel-quienes-somos slide" data-ride="carousel">           
+                                  <!-- Wrapper for slides -->
+                                  
+                                  <div class="carousel-inner">                                   
+                                      <div class="item active">                                    
+                                        <div class="row">
+                                            <div class="container">
+                                                <div class="col-md-12">
+                                                    <div class="col-md-2 col-sm-2 col-xs-2"></div>
+                                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                                        <img class="img-responsive img-circle" src="{{ empleado1.foto_thumbnail.url }}" alt="Retrato">
+                                                    </div>
+                                                    <div class="col-md-5 col-sm-5 col-xs-5">
+                                                        <h2>{{ empleado1.nombres }}<br>
+                                                        <small class="text-90">{{ empleado1.cargo }}</small></h2>
+                                                        <p>
+                                                            <a href="#" role="button" class="btn btn-default ir-fotos-evento-proximo reservas contacto-quienes-somos"  data-content="
+                                                            <div class='row'>
+                                                              <div class='col-md-12'>
+                                                                <form class='form form-inline' role='form'>
+                                                                  <div class='form-group'>                            
+                                                                    <input style='width:45%' required='required' type='text' class='form-control' id='nombre' placeholder='TU NOMBRE'>      
+                                                                    
+                                                                                                                 
+                                                                    <input style='width:45%' required='required' type='email' class='form-control' id='email' placeholder='TU EMAIL'>                          
+                                                                                             
+                                                                    <textarea style='width:90%'  rows='4' required='required' class='form-control' id='exampleInputEmail1' placeholder='MENSAJE PARA KATHERINE'></textarea>
+                                                               
+                                                                  <button type='submit' class='btn btn-default'>ENVIAR</button>
+                                                                  
+                                                                </form>
+                                                              </div>
+                                                            </div>" data-placement="right">CONTACTAR</a></p>
+                                                    </div>
+                                                    <div class="col-md-2 col-sm-2 col-xs-2"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      </div>                                      
+                                      {% for empleado in empleado %}
+                                        <div class="item">                                    
+                                        <div class="row">
+                                            <div class="container">
+                                                <div class="col-md-12">
+                                                    <div class="col-md-2 col-sm-2 col-xs-2"></div>
+                                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                                        <img class="img-responsive img-circle" src="{{ empleado.foto_thumbnail.url }}" alt="Retrato">
+                                                    </div>
+                                                    <div class="col-md-5 col-sm-5 col-xs-5">
+                                                        <h2>{{ empleado.nombres }}<br>
+                                                        <small class="text-90">{{ empleado.cargo }}</small></h2>
+                                                        <p>
+                                                            <a href="#" role="button" class="btn btn-default ir-fotos-evento-proximo reservas contacto-quienes-somos"  data-content="
+                                                            <div class='row'>
+                                                              <div class='col-md-12'>
+                                                                <form class='form form-inline' role='form'>
+                                                                  <div class='form-group'>                            
+                                                                    <input style='width:45%' required='required' type='text' class='form-control' id='nombre' placeholder='TU NOMBRE'>      
+                                                                    
+                                                                                                                 
+                                                                    <input style='width:45%' required='required' type='email' class='form-control' id='email' placeholder='TU EMAIL'>                          
+                                                                                             
+                                                                    <textarea style='width:90%'  rows='4' required='required' class='form-control' id='exampleInputEmail1' placeholder='MENSAJE PARA KATHERINE'></textarea>
+                                                               
+                                                                  <button type='submit' class='btn btn-default'>ENVIAR</button>
+                                                                  
+                                                                </form>
+                                                              </div>
+                                                            </div>" data-placement="right">CONTACTAR</a></p>
+                                                    </div>
+                                                    <div class="col-md-2 col-sm-2 col-xs-2"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      </div>
+                                      {% endfor %}
+                                    </div>
+
+                                    
+
+                                  <!-- Controls -->
+                                  <a style="color:red; opacity: 1;" class="left carousel-control" href="#carousel-quienes-somos" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                  </a>
+                                  <a style="color:red; opacity: 1;" class="right carousel-control" href="#carousel-quienes-somos" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                  </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+                       
+
+                        
+                        <!-- <div class="row">
+                            
+                            <br>
+                           
+                            <div class="container">
+                                <div class="col-md-12">
+                                    <div class="col-md-2 col-sm-2 col-xs-3"><img class="img-responsive" src="{% static 'img/retrato.jpg' %}" alt="retrato-personaje"></div>
+                                    <div class="col-md-2 col-sm-2 col-xs-3"><img class="img-responsive" src="img/retrato.jpg" alt="retrato-personaje"></div>
+                                    <div class="col-md-2 col-sm-2 col-xs-3"><img class="img-responsive" src="img/retrato.jpg" alt="retrato-personaje"></div>
+                                    <div class="col-md-2 col-sm-2 col-xs-3"><img class="img-responsive" src="img/retrato.jpg" alt="retrato-personaje"></div>
+                                    <div class="col-md-2 col-sm-2 col-xs-3"><img class="img-responsive" src="img/retrato.jpg" alt="retrato-personaje"></div>
+                                    <div class="col-md-2 col-sm-2 col-xs-3"><img class="img-responsive" src="img/retrato.jpg" alt="retrato-personaje"></div>
+                                    <div class="col-md-2 col-sm-2 col-xs-3"><img class="img-responsive" src="img/retrato.jpg" alt="retrato-personaje"></div>
+                                    <div class="col-md-2 col-sm-2 col-xs-3"><img class="img-responsive" src="img/retrato.jpg" alt="retrato-personaje"></div>
+                                    <div class="col-md-2 col-sm-2 col-xs-3"><img class="img-responsive" src="img/retrato.jpg" alt="retrato-personaje"></div>
+                                    <div class="col-md-2 col-sm-2 col-xs-3"><img class="img-responsive" src="img/retrato.jpg" alt="retrato-personaje"></div>
+                                    <div class="col-md-2 col-sm-2 col-xs-3"><img class="img-responsive" src="img/retrato.jpg" alt="retrato-personaje"></div>
+                                    <div class="col-md-2 col-sm-2 col-xs-3"><img class="img-responsive" src="img/retrato.jpg" alt="retrato-personaje"></div>
+                                </div>
+                            </div>
+                        
+                            <br>
+                            <br>
+                            
+                        </div> -->
+
+
+                    </div>
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+        
+
+    
+
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+     <script>
+      $().ready(function(){
+        $("button").tooltip(
+          {
+            html:true,
+            /*placement: "top",*/
+            trigger: "hover focus manual",
+            /*container: "body",*/
+          });
+
+        $("button").popover({
+          html:true,
+        });
+
+        $("a").popover({
+          html:true,
+        });
+
+      })
+</script>
+
+<script type="text/javascript">
+    window.onload = function() {
+      document.onmousemove = function(e) {
+        var x = (e.clientX/50);
+        var y = (e.clientY/50);
+        this.body.style.backgroundPosition = x + 'px ' + y + 'px';
+      };
+    };
+  </script>
+
+
+        
+    </body>
+</html>
+
+{% endblock %}

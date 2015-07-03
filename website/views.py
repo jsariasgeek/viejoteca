@@ -82,7 +82,7 @@ def historico_eventos(request):
 def sobre_nosotros(request, pk=None):
 	form = FormularioEmpleado(request.POST or None)
 	empleados = Empleado.objects.all()
-	contenido_sitio = ContenidoSitioWeb.objects.all()
+	# contenido_sitio = ContenidoSitioWeb.objects.all()
 
 	if form.is_valid():
 			try:
@@ -95,7 +95,7 @@ def sobre_nosotros(request, pk=None):
 			except ObjectDoesNotExist:
 				return HttpResponse('Para enviar el mensaje debes ser usuario registrado <br> <a class="btn btn-default" href="#">REGISTRARME<a>')
 	
-	return render_to_response('sobre-nosotros.html', dict(empleados = empleados, form=form, contenido=contenido_sitio), context_instance=RequestContext(request))
+	return render_to_response('sobre-nosotros.html', dict(empleados = empleados, form=form,), context_instance=RequestContext(request))
 
 def carta(request):
 	return render_to_response('carta.html') 
