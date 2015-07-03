@@ -1,0 +1,96 @@
+<section class="col-md-12">
+  <header class="col-md-12">
+    <div class="col-md-12">
+      <h1 class="page-header">{{ month }} 
+        / {{ year }}<small></small></h1>             
+    </div>
+  </header> 
+
+  <div class="col-md-12">
+    {% for evento in eventos_del_mes %}
+    {% if forloop.first %}
+      <div class="col-md-12">
+        <article class="col-md-6 portfolio-item" style="margin-bottom:20px;">
+          <a href="{% url 'pagina_evento' evento.fecha.year evento.fecha.month evento.get_absolute_url %}">
+            <img class="img-responsive" src="{{ evento.flyer_thumbnail.url }}" alt="{{evento.nombre}}">
+          </a>
+          <div class="col-md-12">
+            <table class="table-eventos">
+              <tr>
+                <td class="col-md-1 text-center evento-fecha"><time datetime="{{evento.fecha|date:'c'}}">{{ evento.fecha.day }}<br>{{ evento.fecha|date:"F" }}</time></td>
+                <td class="col-md-11 descripcion-evento table-padding" style="word-wrap: break-word;"><span class="title-evento">{{ evento.nombre|truncatechars:60 }}</span></td>        
+            </tr>
+            </table>
+          </div>                                    
+        </article>
+    {%  elif forloop.counter == "2" %}    
+    <article class="col-md-6 portfolio-item" style="margin-bottom:20px;">
+      <a href="{% url 'pagina_evento' evento.fecha.year evento.fecha.month evento.get_absolute_url %}">
+        <img class="img-responsive" src="{{ evento.flyer_thumbnail.url }}" alt="{{evento.nombre}}">
+      </a>
+      <div class="col-md-12">
+        <table class="table-eventos">
+          <tr>
+            <td class="col-md-1 text-center evento-fecha"><time datetime="{{evento.fecha|date:'c'}}">{{ evento.fecha.day }}<br>{{ evento.fecha|date:"F" }}</time></td>
+            <td class="col-md-11 descripcion-evento table-padding" style="word-wrap: break-word;"><span class="title-evento">{{ evento.nombre|truncatechars:60 }}</span></td>           
+        </tr>
+        </table>
+      </div>                                    
+    </article>
+  </div>
+
+    {% elif forloop.counter|divisibleby:"2" %}
+    <article class="col-md-6 portfolio-item" style="margin-bottom:20px;">
+      <a href="{% url 'pagina_evento' evento.fecha.year evento.fecha.month evento.get_absolute_url %}">
+        <img class="img-responsive" src="{{ evento.flyer_thumbnail.url }}" alt='{{evento.nombre}}'>
+      </a>
+      <div class="col-md-12">
+        <table class="table-eventos">
+          <tr>
+            <td class="col-md-1 text-center evento-fecha"><time datetime="{{evento.fecha|date:'c'}}">{{ evento.fecha.day }}<br>{{ evento.fecha|date:"F" }}</time></td>
+            <td class="col-md-11 descripcion-evento table-padding" style="word-wrap: break-word;"><span class="title-evento">{{ evento.nombre|truncatechars:60 }}</span></td>            
+        </tr>
+        </table>
+      </div>                                    
+    </article>
+  </div>
+  {% else %}   
+
+  <div class="col-md-12">
+    <article class="col-md-6 portfolio-item" style="margin-bottom:20px;">
+      <a href="{% url 'pagina_evento' evento.fecha.year evento.fecha.month evento.get_absolute_url %}">
+        <img class="img-responsive" src="{{ evento.flyer_thumbnail.url }}" alt="{{evento.nombre}}">
+      </a>
+      <div class="col-md-12">
+        <table class="table-eventos">
+          <tr>
+            <td class="col-md-1 text-center evento-fecha"><time datetime="{{evento.date}}">{{ evento.fecha.day }}<br>{{ evento.fecha|date:"F" }}</time></td>
+            <td class="col-md-11 descripcion-evento table-padding" style="word-wrap: break-word;"><span class="title-evento">{{ evento.nombre|truncatechars:60 }}</span></td>            
+        </tr>
+        </table>
+      </div>                                    
+    </article>
+    {% endif %}    
+    {% endfor %}
+        </div>            
+
+  
+ 
+    
+  <hr>
+  
+</section>
+<script>
+  $('.title-evento').tooltip({
+    html: true,
+  });
+</script>
+
+
+
+
+
+
+
+
+

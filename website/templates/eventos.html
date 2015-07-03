@@ -1,0 +1,185 @@
+{% extends 'navbar.html' %}
+{% load staticfiles %}
+{% block cabecera %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La viejoteca de la Quinta - Eventos</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">  
+  <meta name="description" content="La viejoteca de la 5. Programaci&oacute;n de Eventos. Historico de Eventos">
+
+   <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+
+  <!-- Custom CSS-->
+  <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+  <link rel="stylesheet" href="{% static 'css/animation-nav.css' %}">
+  <!--Font Awesome -->
+  <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.css' %}">
+  </head>
+
+  <body>
+{% endblock %}
+{% block cuerpo %}
+    <br>  
+    <div class="container" style="display:table;">
+      <div class="row" style="display:table-row;">
+        <div class="col-md-9" role="main">
+          <div class="col-md-12">
+            <br>
+            <br>
+            <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li class="active">EVENTOS</li>
+            <li><a href="/eventos/historico-de-eventos">HIST&oacute;RICO DE EVENTOS</a></li>
+            
+          </ol>
+          </div>
+
+        <div id="height-eventos" class="col-md-12">
+
+          <div class="col-md-12">          
+            <a  id="evento_inminente" href="{% url 'pagina_evento_proximo' evento_inminente.pk %}" data-toggle='modal' data-target='#modal{{evento_inminente.id}}'>
+              <img id="evento-inminente" class="img-responsive" src="{{ evento_inminente.flyer_thumbnail_inminente.url }}" alt="{{ evento_inminente.nombre }}">
+            </a>
+          <br>
+          </div>
+
+          <div class="col-md-12 thumbnails">         
+              {% for evento in eventos_proximos %}
+             <div class="col-md-4 col-sm-4 col-xs-6 thumbnails">               
+                 <a class='thumbnail' href="{% url 'pagina_evento_proximo' evento.pk %}" data-toggle="modal" data-target="#modal{{evento.id}}">
+                  <img class="img-responsive" src="{{ evento.flyer_thumbnail_historico.url }}" alt="{{evento.nombre}}">
+                </a>              
+             </div>
+              {% endfor %}
+          </div> 
+
+        <div id='reservas' class="col-md-12">
+            <div class="col-md-12">
+              <h2>Te Gustaría Reservar Para Alguna Fecha en Especial?</h2>
+              <form class="form-horizontal" role="form">
+                <div class="form-group"> 
+                  <div class="col-md-12">
+                    <div class="col-md-3">Fecha</div>
+                    <div class="col-md-3">
+                      <input type="date" class="form-control" id="inputEmail3" placeholder="Fecha">
+                  </div>
+                  </div>     
+                </div>
+                <div class="form-group">                  
+                  <div class="col-md-12">
+                    <div class="col-md-3">Número de Personas</div>
+                    <div class="col-md-3"> <input type="number" class="form-control" id="inputPassword3" value="4" min="0" max="20"></div>
+                  </div>
+                </div>                
+                <div class="form-group">
+                  <div class="col-md-12">
+                      <div class="col-md-2">
+                        <button type="submit" class="btn btn-default">Enviar</button>
+                    </div>
+                  </div>                  
+                </div>
+              </form>             
+            </div>
+          </div>
+        </div>
+        
+
+        </div>
+        <div class="col-md-3">
+          <br>
+          <br>
+
+          <div class="col-md-12">
+            <h2 class="text-center">EVENTOS PASADOS</h2>
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-xs-12 scrolling-eventos-pasados">
+            {% for evento in eventos_pasados %}
+            <div class="col-md-12 col-sm-4 col-xs-6 div-eventos-pasados">          
+              <a href="{% url 'pagina_evento' evento.fecha.year evento.fecha.month evento.get_absolute_url %}">
+                <img class="img-responsive" src="{{ evento.flyer_thumbnail_historico.url }}" alt="{{evento.nombre}}">
+              </a>
+              <br>
+            </div>
+            {% endfor %}          
+
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <a href="{% url 'historico_eventos' %}" style="text-decoration:none;">
+                 <h3 class="text-center" style="color:white; background-color:#e74a45; border-radius:5px; padding-left:0px; padding-right:0px;">Ver Más Eventos</h3>
+               </a>
+            </div>          
+        </div>        
+      </div>      
+      </div>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      
+      <!-- Ventanas Modales -->
+
+      <div id='modal{{evento_inminente.id}}' class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">        
+          <div class="modal-content">            
+        </div> 
+        </div>        
+      </div>
+      
+      {% for evento in eventos_proximos %}
+      <div id='modal{{evento.id}}' class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">          
+          <div class="modal-content">            
+          </div> 
+        </div>        
+      </div>
+      {% endfor %}
+
+    
+      
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>  
+ <script src="{% static 'js/bootstrap.min.js' %}"></script><script src="http://fgnass.github.io/spin.js/spin.min.js"></script>  
+
+
+    <script>
+ //  $(document).on('ready', function(){
+ //    $('.modal').on('hide.bs.modal', function(){
+ //      console.log('Se ha cerrado la ventana modal')
+ //      $('.modal-content').empty()
+ //    })
+ //  })
+ // </script>
+
+    <script>
+      $(document).on('ready', function(){
+         $('.modal').on('show.bs.modal', function(){
+          console.log('Se ha abierto la ventana Modal')
+            $('#reservar').on('click', function(){
+            $('#login-facebook').slideUp()
+            console.log('Ya hice click')
+          })
+        })
+      })
+    </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+{% endblock %}

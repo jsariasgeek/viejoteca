@@ -1,0 +1,126 @@
+{% extends 'navbar.html' %}
+{% load staticfiles %}
+{% block cabecera %}
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>La viejoteca de la Quinta - P&aacute;gina Principal</title>
+  <!--Sliders -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"> 
+  <link rel="stylesheet" href="{% static 'css/jquery.bxslider.css' %}"> 
+   
+    
+	<meta name="description" content="La viejoteca de la 5. La mejor Rumba del Eje Cafetero. Ubicación de la discoteca, programación, galería fotográfica y contacto.">
+  <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+
+	<!-- Bootstrap-->
+	<!-- Custom CSS-->
+	<link rel="stylesheet" href="{% static 'css/custom.css' %}"> 
+  <link rel="stylesheet" href="{% static 'css/animation-nav.css' %}">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.css' %}">
+
+</head>
+
+<body>
+    {% endblock %}  
+
+    {% block cuerpo %}
+    <br>   
+    <br>
+    <br>    
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+
+          <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li><a href="/eventos">EVENTOS</a></li>
+            <li class="active"><a href="/eventos/historico-de-eventos">HIST&Oacute;RICO DE EVENTOS</a></li>             
+            <li class="active">{{ evento.nombre|truncatechars:47 }} | {{ evento.fecha }}</li>              
+          </ol>
+        </div>
+
+        <div class="col-md-3">
+          <div class="col-md-12">
+            <h3>EVENTOS / {{ evento.fecha|date:"F" }} / {{ evento.fecha.year }}</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="col-md-12">
+          <div class="col-md-9">
+            <div id="evento-inminente" class="col-md-12">
+              <img class="img-responsive" src="{{ evento.flyer_thumbnail_inminente.url }}" alt="Flyer del Evento">
+            </div> 
+          </div>
+
+          <div class="col-md-3">
+            <div class="col-md-12 scrolling-eventos-pasados" style="max-height:400px;">
+              {% for evento in eventos_relacionados %}
+              <div class="col-md-12 col-sm-6 div-eventos-pasados">          
+                <a href="{% url 'pagina_evento' evento.fecha.year evento.fecha.month evento.get_absolute_url %}">
+                  <img class="img-responsive" src="{{ evento.flyer_thumbnail_historico.url }}" alt="{{ evento.nombre }}">
+                </a>
+                <br>           
+              </div>
+              {% endfor %}
+              </div>
+          </div>
+        </div>
+        <div class="col-md-12">          
+          <div class="col-md-12">
+            {% if evento.src_album %}
+            <iframe src="{{  evento.src_album }}" width="900" height="1450" frameborder="0" scrolling="no" marginheight="0"  marginwidth="0"></iframe>
+
+            {% else %}
+            <br>
+            <br>
+            <h2>NO SE HAN CARGADO IMAGENES PARA ESTE EVENTO</h2>
+            {% endif %}
+          </div>  
+        </div>
+      </div>      
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{% static 'js/preload.js' %}"></script>  
+
+    <script>
+      $(document).on('ready', function(){
+
+           var imgHeight = $('#evento-inminente').height()
+
+           if(imgHeight>100){
+             $('.scrolling-eventos-pasados').css('maxHeight', imgHeight )
+            console.log(imgHeight)
+           }
+
+          
+     
+
+        $(window).resize(function(){
+        var imgHeight = $('#evento-inminente').height()
+        $('.scrolling-eventos-pasados').css('maxHeight', imgHeight )
+      })
+
+
+
+        })
+
+       
+      
+
+    </script>
+    
+  
+
+  </body>
+</html>
+ {% endblock %}

@@ -1,0 +1,162 @@
+{% extends 'navbar.html' %}
+{% load staticfiles %}
+{% block cabecera %}
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>La viejoteca de la Quinta - P&aacute;gina Principal</title>
+  <!--Sliders -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"> 
+  <link rel="stylesheet" href="{% static 'css/jquery.bxslider.css' %}"> 
+  <link rel="stylesheet" href="{% static 'css/blue-imp.css' %}">   
+  <link rel="stylesheet" href="{% static 'css/gallery.css' %}"> 
+   
+    
+	<meta name="description" content="La viejoteca de la 5. La mejor Rumba del Eje Cafetero. Ubicación de la discoteca, programación, galería fotográfica y contacto.">
+  <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+
+	<!-- Bootstrap-->
+	
+
+	<!-- Custom CSS-->
+	<link rel="stylesheet" href="{% static 'css/custom.css' %}"> 
+  <link rel="stylesheet" href="{% static 'css/animation-nav.css' %}">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.css' %}">
+
+<style>
+    .embed-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; max-width: 100%; height: auto; overflow: hidden; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+</style>
+    
+
+     
+  
+
+  <!--<style>
+  
+    body{
+        background: url({% static 'img/background-quienes-somos.jpg' %});
+        background-attachment: fixed;
+        background-size:100%;
+    }
+  
+  </style>-->
+</head>
+
+<body>
+    <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+
+
+    {% endblock %}  
+
+    {% block cuerpo %}
+    <br>
+    <br>
+    <br>
+    
+
+
+    <div class="row">       
+        <div class="col-md-12 invitacion-comunidad">            
+            <h2 class="text-150 text-center">ULTIMOS VIDEOS</h2> 
+        </div>       
+    </div>
+
+    <br>
+    <br> 
+
+    <div class="row">     
+        <div class="col-md-12">
+            {% for video in videos %}
+            <div class="col-md-3 col-sm-4 col-xs-6 col-videos">
+                <div class='embed-container'>
+                    <iframe src='{{ video.url }}' frameborder='0' allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="col-md-12">
+                    <table class="table-eventos" style="margin:0;padding:0;">
+                      <tr>
+                        <td class="col-md-10 descripcion-evento table-padding" style="margin-left:0px; padding-left:0px;">{{ video.titulo|truncatechars:30 }}</td>
+                        <td class="col-md-1 text-center evento-fecha">{{ video.fecha.day }}<br>{{ video.fecha|date:"F" }}</td>
+                        <td class="col-md-1 table-padding"><a class="ir-fotos ir-fotos-evento-proximo" href="fotos-evento.html">VER&nbsp;FOTOS</a></td>
+                      </tr>
+                    </table>
+              </div>
+            </div>
+            {% endfor %}
+        </div>       
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <div class="row">             
+        <div class="col-md-12 invitacion-comunidad">            
+            <h2 class="text-150 text-center">ULTIMAS FOTOS</h2>           
+        </div>      
+    </div>
+
+    <br>
+    <br>
+
+
+
+    <div id="links" class="row">     
+            <div class="col-md-12">
+                {% for imagen in imagenes %}
+                <div class="col-md-2 col-sm-3 col-xs-4 col-thumbnail">
+                    <a href="{{ imagen.imagen.url }}">
+                        <img class="img-responsive" src="{{ imagen.thumbnail_foto.url }}" alt="">
+                    </a>
+                </div>
+                {% endfor %}
+            </div>       
+    </div>
+
+    <br>
+    <br>
+    <br>
+      
+        
+    
+         
+         
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>  
+   <script src="{% static 'js/bootstrap.min.js' %}"></script> 
+   <script src="{% static 'js/preload.js' %}"></script> 
+
+    <script src="{% static 'js/gallery.js' %}"></script>
+
+    <script>
+document.getElementById('links').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+</script>
+
+
+        
+
+  
+
+  </body>
+</html>
+ {% endblock %}

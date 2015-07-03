@@ -1,0 +1,124 @@
+{% extends 'navbar.html' %}
+{% load staticfiles %}
+{% block cabecera %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<title>La Viejoteca de la Quinta - Lista de Precios</title>
+    <meta name="description" content="La Viejoteca de la Quinta. Lista de Precios. Te sorprender&aacute;n nuestros Precios.Con cuanto dinero crees poder salir a rumbear?">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{% static 'js/preload.js' %}"></script>   
+
+    
+    
+<!--Adobe Edge Runtime End-->
+    <!--Favicon -->
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <!-- Custom CSS-->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animation-nav.css' %}"> 
+
+
+
+     
+
+</head>
+<body style="margin:0;padding:0;">
+
+	 {% endblock %}
+     {% block cuerpo %}
+
+    <br>
+    <br>
+
+
+	<div id="Stage" class="EDGE-15380532" style="height:auto;">
+	</div>
+
+    <div class="row row-lista-precios">
+        <div class="container">
+            <div class="col-md-12">
+                <br>                
+                <div class="col-md-4 col-sm-8">
+                    <table class="table">
+                        <tr>
+                            <td>
+                                BRETA&Ntilde;A 300 ML 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>GASEOSA</td>
+                        </tr>
+                        <tr>
+                            <td>AGUA CON HIELO Y LIM&oacute;N</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-2 col-sm-4">
+                    <table class="table">
+                        <tr>
+                            <td>BOTELLA</td>
+                            <td>$</td>
+                            <td>3.000</td>
+                        </tr>
+                        <tr>
+                            <td>JARRA</td>
+                            <td>$</td>
+                            <td>5.000</td>
+                        </tr>
+                        <tr>
+                            <td>JARRA</td>
+                            <td>$</td>
+                            <td>3.000</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-4 col-sm-8">
+                    <table class="table">
+                        <tr>
+                            <td>
+                                AGUA 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>BOMBA</td>
+                        </tr>
+                        <tr>
+                            <td>CHICLES</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-2 col-sm-4">
+                    <table class="table">
+                        <tr>
+                            <td>BOTELLA</td>
+                            <td>$</td>
+                            <td>3.000</td>
+                        </tr>
+                        <tr>
+                            <td>UNIDAD</td>
+                            <td>$</td>
+                            <td>5.000</td>
+                        </tr>
+                        <tr>
+                            <td>CAJA</td>
+                            <td>$</td>
+                            <td>1.500</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+ <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>
+
+{% endblock %}

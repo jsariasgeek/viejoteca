@@ -1,0 +1,116 @@
+{% load staticfiles %}     
+ <button type="button" class="close close-form close-form-modal" data-dismiss="modal">x</button>
+<div class="row" style="background: transparent;">
+		<div class="col-md-12">			
+			<img src="{{ evento.flyer_thumbnail_inminente_modal.url}}" alt="{{evento.nombre}}" class="img-responsive" style='transform:translate(0px, -19px); -webkit-transform: translate(0px, -19px);'>			
+			<table class="table-eventos" style="background-color:white; padding-top:0px; margin-top:0px;">   <tr>
+                    <td class="col-md-1 text-center evento-fecha"><h3 class="text-150" style="padding-top: 1px; padding-bottom: 1px; margin-top: 1px; margin-bottom: 1px;">{{ evento.fecha.day }} <br>{{ evento.fecha|date:"F" }}</h3></td>
+                    <td class="col-md-10 descripcion-evento table-padding" style="width:100%;"><h3 class="text-150" style="padding-top: 1px; padding-bottom: 1px; margin-top: 1px; margin-bottom: 1px;">{{ evento.nombre }}</h3></td>
+                    <td class="col-md-1 table-padding">
+                      <a id='reservar' role="button" class="btn btn-default ir-fotos-evento-proximo reservas">RESERVAS</a>
+                    </td>
+                </tr>                  
+            </table>                          
+		</div>
+
+		<br>
+		<br>
+		
+		 <div class="col-md-12 info-evento"> 
+			<div class="col-md-12">
+				{% if evento.cuna_radial %}
+				{% if len_videos == 2 %}
+				<div class="col-md-12">
+					<div class="col-md-4">
+					<h3 class='text-center col-info-evento'>SOBRE EL EVENTO</h3>
+					</div>
+					<div class="col-md-8">
+					<h3 class='text-center col-info-evento'>QUIERES CONOCER MÁS DEL ARTISTA?</h3>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="col-md-4">
+						<div class="embed-responsive embed-responsive-16by9">
+						<iframe class="embed-responsive-item" src="{{ evento.cuna_radial }}" allowfullscreen></iframe>
+					</div>
+					</div>
+					{% for video in videos_artista %}
+					<div class="col-md-4">
+						<div class="embed-responsive embed-responsive-16by9">
+							<iframe class="embed-responsive-item" src="{{ video.url }}" allowfullscreen></iframe>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+				{% elif len_videos == 1 %}
+				<div class="col-md-12">
+					<div class="col-md-6">
+					<h3 class='text-center col-info-evento'>SOBRE EL EVENTO</h3>
+					</div>
+					<div class="col-md-6">
+					<h3 class='text-center col-info-evento'>QUIERES CONOCER MÁS DEL ARTISTA?</h3>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="col-md-6">
+						<div class="embed-responsive embed-responsive-16by9">
+						<iframe class="embed-responsive-item" src="{{ evento.cuna_radial }}" allowfullscreen></iframe>
+					</div>
+					</div>
+					{% for video in videos_artista %}
+					<div class="col-md-6">
+						<div class="embed-responsive embed-responsive-16by9">
+							<iframe class="embed-responsive-item" src="{{ video.url }}" allowfullscreen></iframe>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+
+				{% endif %}
+				{% endif %}
+
+				{% if not evento.cuna_radial %}
+				{% if len_videos == 1 %}
+				<div class="col-md-12">
+					<div class="col-md-12">
+					<h3 class='text-center col-info-evento'>QUIERES CONOCER MÁS DEL ARTISTA?</h3>
+					</div>
+				</div>
+				<div class="col-md-12">
+					{% for video in videos_artista %}
+					<div class="col-md-3"></div>
+					<div class="col-md-6">
+						<div class="embed-responsive embed-responsive-16by9">
+							<iframe class="embed-responsive-item" src="{{ video.url }}" allowfullscreen></iframe>
+						</div>
+					</div>
+					<div class="col-md-3"></div>
+					{% endfor %}
+				</div>
+				{% elif len_videos == 2 %}
+					<div class="col-md-12">
+						<div class="col-md-12">
+							<h3 class='text-center col-info-evento'>QUIERES CONOCER MÁS DEL ARTISTA?</h3>
+						</div>
+					</div>
+
+					<div class="col-md-12">
+						{% for video in videos_artista %}						
+						<div class="col-md-6">
+							<div class="embed-responsive embed-responsive-16by9">
+								<iframe class="embed-responsive-item" src="{{ video.url }}" allowfullscreen></iframe>
+							</div>
+						</div>						
+					{% endfor %}
+					</div>
+
+
+
+				{% endif %}
+				{% endif %}
+				
+							
+			</div>	 
+	</div>
+
+	

@@ -15,7 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from website.views import *
 
 urlpatterns = [
+	url(r'^$', index),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^eventos/$', eventos, name='eventos'),	
+	url(r'^eventos/proximos-eventos/(?P<pk>\d+)/$', pagina_evento_proximo, name='pagina_evento_proximo'),
+	url(r'^eventos/historico-de-eventos/$', historico_eventos, name='historico_eventos'), 
+	url(r'^eventos/historico-eventos/(\d+)/(\d+)/$', eventos_del_mes, name='eventos_del_mes'),
+	url(r'^eventos/historico-de-eventos/(?P<year>\d+)/(?P<month>\d+)/(?P<nombre>[\w\-\W]+)/$', pagina_evento, name='pagina_evento'),
+	url(r'^sobre-nosotros/', sobre_nosotros, name='sobre_nosotros'),
+	url(r'^lista-de-precios/', lista_de_precios, name='lista-de-precios'), 
+	url(r'^galeria/', galeria, name='galeria'), 
+	url(r'^reservas/$', reservas, name='reservas'), 
+	url(r'^contacto/$', contacto, name='contacto'),	
 ]
