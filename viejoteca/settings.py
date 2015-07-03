@@ -138,3 +138,11 @@ STATIC_URL = "https://%s/" %AWS_S3_CUSTOM_DOMAIN
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
+#email
+
+EMAIL_HOST = os.environ['email_host']
+EMAIL_HOST_USER = os.environ['email_host_user']
+EMAIL_HOST_PASSWORD = os.environ['email_host_password']
+EMAIL_PORT = int(os.environ['email_port'])
+EMAIL_USE_TLS = True
+
