@@ -31,19 +31,33 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
+if DEBUG:
+    INSTALLED_APPS = (
+        # 'storages',
+        'django.contrib.admin',
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+        #Apps Project
+        'website',
 
-INSTALLED_APPS = (
-    'storages',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    #Apps Project
-    'website',
+    )
+else:
+    INSTALLED_APPS = (
+        'storages',
+        'django.contrib.admin',
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+        #Apps Project
+        'website',
 
-)
+    )
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -119,24 +133,31 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, 'static'),
-    )
+if DEBUG:
+    STATIC_URL = '/static/' 
+    STATICFILES_DIRS = (
+            os.path.join(BASE_DIR, 'static'),
+        )   
+    # STATIC_ROOT = '/Users/johanstevenariasvasquez/development/viejoteca/viejoteca/static/'
 
 
-AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
-        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-        'Cache-Control': 'max-age=94608000',
-    }
+else:
 
-AWS_STORAGE_BUCKET_NAME = 'viejoteca2015'
-AWS_ACCESS_KEY_ID = os.environ['s3_key_id']
-AWS_SECRET_ACCESS_KEY = os.environ['s3_access_key']
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-STATIC_URL = "https://%s/" %AWS_S3_CUSTOM_DOMAIN
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+    STATICFILES_DIRS = (
+            os.path.join(BASE_DIR, 'static'),
+        )
+
+    AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
+            'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+            'Cache-Control': 'max-age=94608000',
+        }
+    AWS_STORAGE_BUCKET_NAME = 'viejoteca2015'
+    AWS_ACCESS_KEY_ID = os.environ['s3_key_id']
+    AWS_SECRET_ACCESS_KEY = os.environ['s3_access_key']
+    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+    STATIC_URL = "https://%s/" %AWS_S3_CUSTOM_DOMAIN
+    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 #email
 

@@ -28,7 +28,7 @@ class Suscriptor(models.Model):
 	recibe_sms = models.BooleanField("Recibe SMS", default=True)
 	activo = models.BooleanField("Recibe Emails", default=False)
 
-	def __str__(self):
+	def __unicode__(self):
 		return (self.nombres + ' ' + self.apellidos)
 
 	class Meta():
@@ -40,7 +40,7 @@ class ContactosdeApoyo(models.Model):
 	id_user = models.ForeignKey(Suscriptor)
 	fecha_creacion = models.DateTimeField(auto_now_add=True)
 
-	def __str__(self):
+	def __unicode__(self):
 		return self.nombres
 
 class Mensaje(models.Model):
@@ -48,7 +48,7 @@ class Mensaje(models.Model):
 	mensaje = models.TextField()
 	fecha_envio = models.DateTimeField(auto_now_add=True)
 
-	def __str__(self):
+	def __unicode__(self):
 		return self.mensaje[:60]
 
 	class Meta():
@@ -86,7 +86,7 @@ class Evento(models.Model):
 	fecha_actualizacion = models.DateTimeField(auto_now=True)
 	
 
-	def __str__(self):
+	def __unicode__(self):
 		return self.nombre
 
 	class Meta:
@@ -103,7 +103,7 @@ class VideosArtista(models.Model):
 	evento = models.ForeignKey(Evento)
 	url = models.URLField()
 
-	def __str__(self):
+	def __unicode__(self):
 		return self.url
 
 
@@ -114,7 +114,7 @@ class Reserva(models.Model):
 	numero_mesas = models.SmallIntegerField()
 	fecha_reserva = models.DateTimeField(auto_now_add=True)
 
-	def __str__(self):
+	def __unicode__(self):
 		return str(self.suscriptor)
 
 	class Meta():
@@ -133,7 +133,7 @@ class ImagenGallery(models.Model):
                                       format='JPEG',
                                       options={'quality': 100})
 
-	def __str__(self):
+	def __unicode__(self):
 		return str(self.Numero_Imagen)
 
 	class Meta():
@@ -161,7 +161,7 @@ class Empleado(models.Model):
                                       format='JPEG',
                                       options={'quality': 100})
 
-	def __str__(self):
+	def __unicode__(self):
 		return self.nombres
 
 	def showfoto(self):
@@ -179,7 +179,7 @@ class MensajeEmpleado(models.Model):
 	suscriptor = models.ForeignKey(Suscriptor)
 
 
-	def __str__(self):
+	def __unicode__(self):
 		return str(self.empleado)
 
 	class Meta():
@@ -190,13 +190,13 @@ class Video(models.Model):
 	fecha = models.DateField()
 	url = models.URLField()
 
-	def __str__(self):
+	def __unicode__(self):
 		return self.titulo
 
 # class ContenidoSitioWeb(models.Model):
 # 	quienes_somos =  HTMLField(max_length=600)	
 
-# 	def __str__(self):
+# 	def __unicode__(self):
 # 		return ('Sección Quienes Somos')
 
 # 	class Meta():
