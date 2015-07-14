@@ -46,7 +46,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = (
         'storages',
-        'mathfilters',
+        # 'mathfilters',
         'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',
