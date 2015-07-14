@@ -95,6 +95,14 @@ class Evento(models.Model):
 	def get_absolute_url(self):
 		return '%s' %(slugify(self.nombre))
 
+	def get_flyer_thumbnail(self):
+		return """
+		<img src="%s" alt="">
+		"""% self.flyer_thumbnail_historico.url
+
+	get_flyer_thumbnail.short_description = 'Flyer'
+	get_flyer_thumbnail.allow_tags = True
+
 	def save(self, *args, **kwargs):
 		self.url = slugify(self.nombre)
 		super (Evento, self).save(*args, **kwargs)
@@ -105,6 +113,8 @@ class VideosArtista(models.Model):
 
 	def __unicode__(self):
 		return self.url
+
+
 
 
 class Reserva(models.Model):
