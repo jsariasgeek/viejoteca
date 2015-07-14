@@ -14,7 +14,7 @@ class ReservaInline(admin.TabularInline):
     extra = 0
 
 class EventoAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'fecha')
+    list_display = ('pk','fecha', 'nombre', )
     # fieldsets = (
     #     [None,{'fields': ['nombre']}],
     #     ['Redactar Descripción', {

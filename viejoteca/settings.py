@@ -30,23 +30,23 @@ DEBUG = socket.gethostname() == 'MacBook-Pro-de-Johan.local'
 ALLOWED_HOSTS = ['*']
 
 
-# Application definition
-if DEBUG:
-    INSTALLED_APPS = (
-        # 'storages',
-        'django.contrib.admin',
-        'django.contrib.auth',
-        'django.contrib.contenttypes',
-        'django.contrib.sessions',
-        'django.contrib.messages',
-        'django.contrib.staticfiles',
-        #Apps Project
-        'website',
+# # Application definition
+# if DEBUG:
+#     INSTALLED_APPS = (
+#         # 'storages',
+#         'django.contrib.admin',
+#         'django.contrib.auth',
+#         'django.contrib.contenttypes',
+#         'django.contrib.sessions',
+#         'django.contrib.messages',
+#         'django.contrib.staticfiles',
+#         #Apps Project
+#         'website',)
 
-    )
-else:
-    INSTALLED_APPS = (
+
+INSTALLED_APPS = (
         'storages',
+        'mathfilters',
         'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',
@@ -133,31 +133,28 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-if DEBUG:
-    STATIC_URL = '/static/' 
-    STATICFILES_DIRS = (
-            os.path.join(BASE_DIR, 'static'),
-        )   
-    # STATIC_ROOT = '/Users/johanstevenariasvasquez/development/viejoteca/viejoteca/static/'
+# if DEBUG:
+#     STATIC_URL = '/static/' 
+#     STATICFILES_DIRS = (
+#             os.path.join(BASE_DIR, 'static'),
+#         )   
+#     # STATIC_ROOT = '/Users/johanstevenariasvasquez/development/viejoteca/viejoteca/static/'
 
-
-else:
-
-    STATICFILES_DIRS = (
+STATICFILES_DIRS = (
             os.path.join(BASE_DIR, 'static'),
         )
 
-    AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
+AWS_HEADERS = {  # see http://developer.yahoo.com/performance/rules.html#expires
             'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
             'Cache-Control': 'max-age=94608000',
         }
-    AWS_STORAGE_BUCKET_NAME = 'viejoteca2015'
-    AWS_ACCESS_KEY_ID = os.environ['s3_key_id']
-    AWS_SECRET_ACCESS_KEY = os.environ['s3_access_key']
-    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-    STATIC_URL = "https://%s/" %AWS_S3_CUSTOM_DOMAIN
-    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_STORAGE_BUCKET_NAME = 'viejoteca2015'
+AWS_ACCESS_KEY_ID = os.environ['s3_key_id']
+AWS_SECRET_ACCESS_KEY = os.environ['s3_access_key']
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+STATIC_URL = "https://%s/" %AWS_S3_CUSTOM_DOMAIN
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 #email
 
