@@ -15,6 +15,7 @@ class ReservaInline(admin.TabularInline):
 
 class EventoAdmin(admin.ModelAdmin):
     list_display = ('pk','fecha', 'nombre', 'get_flyer_thumbnail')
+    list_per_page = 20
     # fieldsets = (
     #     [None,{'fields': ['nombre']}],
     #     ['Redactar Descripción', {
