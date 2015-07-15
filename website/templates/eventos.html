@@ -53,7 +53,7 @@
 
         <div id="height-eventos" class="col-md-12">
 
-          <div class="col-md-12">          
+          <div class="col-md-12" style="background-image: url({% static '/animation/images/preload.gif' %}); background-position:center; background-repeat:no-repeat;)">          
             <a href="{% url 'pagina_evento_proximo' evento_inminente.pk %}" data-toggle='modal' data-target='#modal{{evento_inminente.id}}'>
               <img id="evento-inminente" class="img-responsive" style="visibility:hidden;"src="{{ evento_inminente.flyer_thumbnail_inminente.url }}" alt="{{ evento_inminente.nombre }}" onload="loadImage('evento-inminente')">
             </a>
@@ -64,7 +64,7 @@
               {% for evento in eventos_proximos %}
              <div class="col-md-4 col-sm-4 col-xs-6 thumbnails">               
                  <a class='thumbnail' href="{% url 'pagina_evento_proximo' evento.pk %}" data-toggle="modal" data-target="#modal{{evento.id}}">
-                  <img class="img-responsive" src="{{ evento.flyer_thumbnail_historico.url }}" alt="{{evento.nombre}}">
+                  <img id="{{evento.pk}}"class="img-responsive" src="{{ evento.flyer_thumbnail_historico.url }}" alt="{{evento.nombre}}" style="visibility:hidden;" onload="loadImage('{{evento.pk}}')">
                 </a>              
              </div>
               {% endfor %}
@@ -114,7 +114,7 @@
             {% for evento in eventos_pasados %}
             <div class="col-md-12 col-sm-4 col-xs-6 div-eventos-pasados">          
               <a href="{% url 'pagina_evento' evento.fecha.year evento.fecha.month evento.get_absolute_url %}">
-                <img class="img-responsive" src="{{ evento.flyer_thumbnail_historico.url }}" alt="{{evento.nombre}}">
+                <img id="{{evento.pk}}"class="img-responsive" src="{{ evento.flyer_thumbnail_historico.url }}" alt="{{evento.nombre}}" style="visibility:hidden;" onload="loadImage({{evento.pk}})">
               </a>
               <br>
             </div>
