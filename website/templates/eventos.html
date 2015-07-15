@@ -26,9 +26,11 @@
 
 <script>
   function loadImage(id){
-    
+
       document.getElementById(String(id)).style.visibility="visible";
-      console.log("La imagen ya cargó")
+      // document.getElementById('info-evento').style.visibility="visible";
+      // document.getElementById('container-event').style.backgroundImage="none";
+      console.log("La imagen ya cargó");
       }
 </script>
 
@@ -180,6 +182,8 @@
       $(document).on('ready', function(){
          $('.modal').on('show.bs.modal', function(){
           console.log('Se ha abierto la ventana Modal')
+            // $('#info-evento').css("visibility","visible");
+            // console.log('info-evento visible desde modal')
             $('#reservar').on('click', function(){
             $('#login-facebook').slideUp()
             console.log('Ya hice click')
