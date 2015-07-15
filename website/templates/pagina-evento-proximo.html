@@ -1,11 +1,25 @@
 {% load staticfiles %} 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>  
-<script src="{% static 'js/preload.js' %}"></script>     
+
+
+<script src="http://fgnass.github.io/spin.js/spin.min.js"></script>
+
+<script>
+  function loadImage(id){
+  		// document.getElementById('preload').style.display="none";
+  		document.getElementById(String(id)).style.visibility="visible";
+  		console.log("La imagen ya cargó")
+      }
+</script>
+
+
+</script>
+
  <button type="button" class="close close-form close-form-modal" data-dismiss="modal">x</button>
-<div class="row" style="background: transparent;">
-		<div class="col-md-12">			
-			<img src="{{ evento.flyer_thumbnail_inminente_modal.url}}" alt="{{evento.nombre}}" class="img-responsive" style='transform:translate(0px, -19px); -webkit-transform: translate(0px, -19px);'>			
-			<table class="table-eventos" style="background-color:white; padding-top:0px; margin-top:0px;">   <tr>
+<div class="row">
+		<div class="col-md-12" style="background-image: url({% static '/animation/images/preload.gif' %}); background-position:center; background-repeat:no-repeat;)">
+			<!-- <img id="preload" src="{% static '/animation/images/preload.gif' %}" alt="Preload">	 -->		
+			<img id="{{evento.pk}}" src="{{ evento.flyer_thumbnail_inminente_modal.url}}" alt="{{evento.nombre}}" class="img-responsive" style="transform:translate(0px, -20px); -webkit-transform: translate(0px, -20px);visibility:hidden; margin-bottom:0px;" onload="loadImage({{evento.pk}})">			
+			<table class="table-eventos" style="background-color:white; padding-top:0px; margin-top:0px;transform:translate(0px, -5px)">   <tr>
                     <td class="col-md-1 text-center evento-fecha"><h3 class="text-150" style="padding-top: 1px; padding-bottom: 1px; margin-top: 1px; margin-bottom: 1px;">{{ evento.fecha.day }} <br>{{ evento.fecha|date:"F" }}</h3></td>
                     <td class="col-md-10 descripcion-evento table-padding" style="width:100%;"><h3 class="text-150" style="padding-top: 1px; padding-bottom: 1px; margin-top: 1px; margin-bottom: 1px;">{{ evento.nombre }}</h3></td>
                     <td class="col-md-1 table-padding">
@@ -14,11 +28,11 @@
                 </tr>                  
             </table>                          
 		</div>
+</div>
 
-		<br>
-		<br>
 		
-		 <div class="col-md-12 info-evento"> 
+		
+		 <!-- <div class="col-md-12 info-evento"> 
 			<div class="col-md-12">
 				{% if evento.cuna_radial %}
 				{% if len_videos == 2 %}
@@ -113,6 +127,6 @@
 				
 							
 			</div>	 
-	</div>
+	</div> -->
 
 	
