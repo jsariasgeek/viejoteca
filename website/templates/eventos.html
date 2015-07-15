@@ -64,7 +64,7 @@
               {% for evento in eventos_proximos %}
              <div class="col-md-4 col-sm-4 col-xs-6 thumbnails">               
                  <a class='thumbnail' href="{% url 'pagina_evento_proximo' evento.pk %}" data-toggle="modal" data-target="#modal{{evento.id}}">
-                  <img id="{{evento.pk}}"class="img-responsive" src="{{ evento.flyer_thumbnail_historico.url }}" alt="{{evento.nombre}}" style="visibility:hidden;" onload="loadImage('{{evento.pk}}')">
+                  <img id="prox-{{evento.pk}}"class="img-responsive" src="{{ evento.flyer_thumbnail_historico.url }}" alt="{{evento.nombre}}" style="visibility:hidden;" onload="loadImage('prox-{{evento.pk}}')">
                 </a>              
              </div>
               {% endfor %}
