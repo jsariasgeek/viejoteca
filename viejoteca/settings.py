@@ -27,7 +27,7 @@ SECRET_KEY = 'phbk0u_z36gn-(nt0yecv-cgglgk=$g3*sedp*-#532rj)3imm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = socket.gethostname() == 'MacBook-Pro-de-Johan.local'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['www.laviejotecadelaquinta.com',]
 
 
 # # Application definition
