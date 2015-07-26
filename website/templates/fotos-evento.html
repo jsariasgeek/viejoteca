@@ -24,13 +24,23 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.css' %}">
 
+
+  <script>
+  function loadImageMain(id){
+
+      document.getElementById(String(id)).style.visibility="visible";
+      // document.getElementById('info-evento').style.visibility="visible";
+      document.getElementById('evento-inminente').style.backgroundImage="none";
+      console.log("La imagen del evento principal ya cargó");
+      }
+</script>
   <script>
   function loadImage(id){
 
       document.getElementById(String(id)).style.visibility="visible";
       // document.getElementById('info-evento').style.visibility="visible";
-      document.getElementById('evento-inminente').style.backgroundImage="none";
-      console.log("La imagen ya cargó");
+      // document.getElementById('evento-inminente').style.backgroundImage="none";
+      console.log("La imagen de evento relacionado ya cargó");
       }
 </script>
 
@@ -67,7 +77,7 @@
         <div class="col-md-12">
           <div class="col-md-9">
             <div id="evento-inminente" class="col-md-12" style="background-image: url({% static '/animation/images/preload.gif' %}); background-position:center; background-repeat:no-repeat;)">
-              <img id="evento-{{evento.pk}}" class="img-responsive" style="visibility:hidden;" src="{{ evento.flyer_thumbnail_inminente.url }}" alt="Flyer del Evento" onload="loadImage('evento-{{evento.pk}}')">
+              <img id="evento-{{evento.pk}}" class="img-responsive" style="visibility:hidden;" src="{{ evento.flyer_thumbnail_inminente.url }}" alt="Flyer del Evento" onload="loadImageMain('evento-{{evento.pk}}')">
             </div> 
           </div>
 
